@@ -393,6 +393,7 @@
             transform: translateY(-10px);
             box-shadow: 0 10px 30px rgba(0, 245, 255, 0.2);
             border: 1px solid var(--neon-blue);
+            transform: scale(1.03);
         }
 
         .project-card::before {
@@ -863,6 +864,10 @@
             background: var(--neon-pink);
             border-radius: 50%;
             animation: blink 1s infinite;
+        }
+
+        .section-title {
+            text-shadow: 0 0 15px rgba(0,245,255,0.5);
         }
 
         @keyframes blink {
