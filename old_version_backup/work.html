@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Work Section - Integrated with Portfolio Theme */
+        #work {
+            position: relative;
+            padding: 6rem 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        #work::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 245, 255, 0.05) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(255, 45, 117, 0.05) 0%, transparent 25%);
+            z-index: -1;
+            animation: pulse 15s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.05); opacity: 0.8; }
+        }
+
+        .work-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .work-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .work-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--neon-blue), var(--cyber-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: rgb(150, 246, 253);
+        }
+        .work-header p {
+            font-size: 1.2rem;
+            color: white;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .divider {
+            width: 550px;
+            height: 4px;
+            background: linear-gradient(90deg, #4ae2dd, #bc41e1);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, var(--neon-blue), var(--neon-pink), transparent);
+        }
+
+        .experience {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .experience.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .experience:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .experience-content {
+            width: calc(50% - 40px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 245, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(2, 12, 27, 0.5);
+            transition: all 0.3s ease;
+            color: white;
+            background: linear-gradient(45deg, rgb(8, 2, 41), rgb(4, 127, 136));
+        }
+
+        .experience:hover .experience-content {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 245, 255, 0.2);
+            border-color: var(--neon-blue);
+        }
+
+        .experience-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--dark-bg), var(--darker-bg));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--neon-blue);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            border: 2px solid var(--neon-blue);
+        }
+
+        .experience h3 {
+            color: var(--neon-blue);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .experience h3 i {
+            margin-right: 10px;
+            color: var(--neon-pink);
+        }
+
+        .experience .subtitle {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+            font-style: italic;
+        }
+
+        .experience p {
+            color: var(--text-primary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .highlights {
+            margin-top: 1.5rem;
+        }
+
+        .highlights li {
+            color: var(--text-primary);
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .highlights li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            width: 8px;
+            height: 8px;
+            background: var(--neon-pink);
+            border-radius: 50%;
+        }
+
+        .highlights ul ul {
+            margin-top: 0.5rem;
+            margin-left: 1rem;
+        }
+
+        .highlights ul ul li::before {
+            background: var(--neon-blue);
+        }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .badge {
+            background: rgba(0, 245, 255, 0.1);
+            color: var(--neon-blue);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid var(--neon-blue);
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            background: rgba(0, 245, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+
+            .experience {
+                flex-direction: column !important;
+                margin-bottom: 3rem;
+            }
+
+            .experience-content {
+                width: 100%;
+                margin-left: 60px;
+            }
+
+            .experience-icon {
+                left: 30px;
+                transform: none;
+            }
+
+            .work-header h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .work-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .experience-content {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Floating elements for background */
+        .floating-dot {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: rgba(0, 245, 255, 0.3);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(50px, 50px); }
+            50% { transform: translate(100px, 0); }
+            75% { transform: translate(50px, -50px); }
+            100% { transform: translate(0, 0); }
+        }
+    </style>
+</head>
+<body>
+    <section id="work">
+        <div class="work-container">
+            <div class="work-header">
+                <h2><i class="fas fa-briefcase"></i> Work <span style="color: rgb(226, 95, 226)">Experience</span></h2>
+                <div class = "divider"></div>
+                <p>Key professional experiences that shaped my skills and expertise</p>
+            </div>
+
+            <div class="timeline">
+
+                <!-- AVCR Project -->
+                <div class="experience">
+                    <div class="experience-content">
+                        <h3><i class="fas fa-robot"></i> AVCR Project</h3>
+                        <span class="subtitle">Autonomous Vehicle for Calamity Rescue | 2024- Present</span>
+                        <p>Developed an academic project focused on creating autonomous vehicles for disaster response and rescue operations.</p>
+                        <div class="highlights">
+                            <ul>
+                                <li>Handled backend development and system architecture</li>
+                                <li>Designed rescue algorithms and pathfinding systems</li>
+                                <li>Implemented sensor integration for obstacle detection</li>
+                                <li>Developed real-time disaster mapping capabilities</li>
+                            </ul>
+                        </div>
+                        <div class="badges">
+                            <span class="badge">Backend Development</span>
+                            <span class="badge">AI Algorithms</span>
+                            <span class="badge">System Architecture</span>
+                            <span class="badge">IoT Integration</span>
+                        </div>
+                    </div>
+                    <div class="experience-icon">
+                        <i class="fas fa-car-crash"></i>
+                    </div>
+                </div>
+
+                <!-- TrueDoc Project -->
+                <div class="experience">
+                    <div class="experience-content">
+                      <h3><i class="fas fa-file-contract"></i> THDCIL – Ministry of Power</h3>
+                        <p style="color:#00ff41;">🚀 Government AI Project – Production Level</p>
+                        <span class="subtitle">September 2025 – Present</span>
+
+                        <p>Working on backend systems and AI/ML pipelines for secure document verification.</p>
+
+                        <div class="highlights">
+                        <ul>
+                            <li>Developed authenticity scoring algorithms for document validation</li>
+                            <li>Built ML-based forgery detection systems</li>
+                            <li>Working on real-world government data pipelines</li>
+                            <li>Designed scalable backend architecture for AI workflows</li>
+                            <li>Automated verification workflows for improved efficiency</li>
+                        </ul>
+                        </div>
+
+                        <div class="badges">
+                            <span class="badge">Machine Learning</span>
+                            <span class="badge">Backend Systems</span>
+                            <span class="badge">Security</span>
+                        </div>
+                    </div>
+                    <div class="experience-icon">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                </div>
+
+                <!-- E-Cell Experience -->
+                <div class="experience">
+                    <div class="experience-content">
+                        <h3><i class="fas fa-users"></i> E-Cell Founder</h3>
+                        <span class="subtitle">IPS Academy | 2024 - Present</span>
+                        <p>Founded and led the Entrepreneurship Cell at IPS Academy in collaboration with IIT Bombay, fostering innovation and leadership among students.</p>
+                        <div class="highlights">
+                            <ul>
+                                <li>Learned leadership and organizational management skills</li>
+                                <li>Established official collaboration with IIT Bombay's E-Cell program</li>
+                                <li>Served as Campus Ambassador for entrepreneurial events</li>
+                                <li>Led team to become National Entrepreneurship Challenge (NEC) Finalists</li>
+                            </ul>
+                        </div>
+                        <div class="badges">
+                            <span class="badge">Leadership</span>
+                            <span class="badge">IIT Bombay Collaboration</span>
+                            <span class="badge">NEC Finalist</span>
+                            <span class="badge">Startup Ecosystem</span>
+                        </div>
+                    </div>
+                    <div class="experience-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                </div>
+
+                <!-- Virtual Internships -->
+                <div class="experience">
+                    <div class="experience-content">
+                        <h3><i class="fas fa-laptop-code"></i> Virtual Internships</h3>
+                        <span class="subtitle">Professional Development |2025 - April</span>
+                        <p>Completed intensive virtual internships with leading organizations to enhance technical and professional skills.</p>
+                        <div class="highlights">
+                            <ul>
+                                <li><strong>Deloitte Australia (Forage):</strong> Data Analytics Virtual Experience
+                                    <ul>
+                                        <li>Built Tableau dashboards for business insights</li>
+                                        <li>Performed data cleaning and classification using Excel</li>
+                                        <li>Applied analytics for fraud detection scenarios</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="badges">
+                            <span class="badge">Data Analytics</span>
+                            <span class="badge">Data Visualization</span>
+                            <span class="badge">Professional Skills</span>
+                            <span class="badge">Corporate Training</span>
+                        </div>
+                    </div>
+                    <div class="experience-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Animation for experiences
+        document.addEventListener('DOMContentLoaded', function() {
+            const experiences = document.querySelectorAll('.experience');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            experiences.forEach(exp => {
+                observer.observe(exp);
+            });
+            
+            // Create floating background elements
+            const workSection = document.getElementById('work');
+            for (let i = 0; i < 20; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'floating-dot';
+                dot.style.width = `${3 + Math.random() * 4}px`;
+                dot.style.height = dot.style.width;
+                dot.style.background = `rgba(${Math.random() > 0.5 ? '0, 245, 255' : '255, 45, 117'}, ${0.2 + Math.random() * 0.3})`;
+                dot.style.top = `${Math.random() * 100}%`;
+                dot.style.left = `${Math.random() * 100}%`;
+                dot.style.animationDuration = `${10 + Math.random() * 20}s`;
+                dot.style.animationDelay = `${Math.random() * 5}s`;
+                workSection.appendChild(dot);
+            }
+
+            // Add hover effect to badges
+            const badges = document.querySelectorAll('.badge');
+            badges.forEach(badge => {
+                badge.addEventListener('mouseenter', () => {
+                    badge.style.boxShadow = `0 0 10px ${badge.style.backgroundColor}`;
+                });
+                badge.addEventListener('mouseleave', () => {
+                    badge.style.boxShadow = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
