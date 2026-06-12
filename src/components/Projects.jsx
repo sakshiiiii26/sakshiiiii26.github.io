@@ -12,7 +12,9 @@ const projectData = [
     image: 'https://5.imimg.com/data5/SELLER/Default/2024/9/450197758/XA/WB/NF/226713088/confined-space-drone-inspection-gps-denied-drone.jpg',
     tags: ['Jetson Nano', 'LSTM', 'ESP32', 'Flask'],
     details: 'In disaster-hit environments, detecting hazardous gas leaks and assessing survivability is extremely difficult. Designed an autonomous IoT-based rescue vehicle equipped with multiple gas sensors. Implemented LSTM model for real-time gas level prediction and Isolation Forest for anomaly detection.',
-    link: 'https://github.com/sakshiiiii26/AVCR'
+    repo: 'https://github.com/sakshiiiii26/AVCR',
+    live: '',
+    video: ''
   },
   {
     id: 'automail',
@@ -21,7 +23,9 @@ const projectData = [
     image: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2',
     tags: ['FastAPI', 'React', 'Selenium', 'NLP', 'Python'],
     details: 'Built an agentic workflow that scrapes job listings, uses NLP to match candidate profiles, and orchestrates email workflows to apply automatically.',
-    link: 'https://mailautomation-83tzikwxc-sakshiiiii26s-projects.vercel.app'
+    repo: '',
+    live: 'https://mailautomation-83tzikwxc-sakshiiiii26s-projects.vercel.app',
+    video: ''
   },
   {
     id: 'rockfall',
@@ -30,7 +34,9 @@ const projectData = [
     image: 'https://www.mdpi.com/mining/mining-02-00019/article_deploy/html/images/mining-02-00019-g015.png',
     tags: ['Python', 'ML', 'Sensor Data'],
     details: 'Rockfalls in open-pit mines pose serious risks. Analyzed geological and vibration sensor data, built an ML model for risk classification, and implemented a real-time alert system to improve worker safety.',
-    link: 'https://sih-web-app-pcgw.onrender.com/login'
+    repo: '',
+    live: 'https://sih-web-app-pcgw.onrender.com/login',
+    video: ''
   },
   {
     id: 'legal',
@@ -39,7 +45,9 @@ const projectData = [
     image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f',
     tags: ['NLP', 'Flask', 'Python'],
     details: 'Built an NLP pipeline using spaCy and Hugging Face Transformers to extract key clauses. Developed an AI-powered document drafting module that generates NDAs and agreements, reducing document review time by ~70%.',
-    link: 'https://ai-legal-advocade-ha9l.vercel.app'
+    repo: '',
+    live: 'https://ai-legal-advocade-ha9l.vercel.app',
+    video: ''
   },
   {
     id: 'carbon',
@@ -48,7 +56,9 @@ const projectData = [
     image: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c',
     tags: ['FastAPI', 'React', 'SpacetimeDB', 'PostgreSQL', 'ML'],
     details: 'Developed a platform for NGOs, admins, and corporates to automate carbon credit issuance. Integrated satellite imagery analysis (NDVI) for automated verification.',
-    link: 'https://final-carbon-vault.vercel.app/'
+    repo: '',
+    live: 'https://final-carbon-vault.vercel.app/',
+    video: ''
   },
   {
     id: 'pothole',
@@ -57,7 +67,9 @@ const projectData = [
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsv5humNRjMoIS5sMDKc_VOmRqaiJJ6mS_Hw&s',
     tags: ['YOLO', 'OpenCV', 'Python'],
     details: 'Fine-tuned YOLOv8 object detection model on a labelled pothole dataset for real-time detection. Built severity classification and GPS logging to generate actionable reports for municipal road authorities.',
-    link: 'https://github.com/sakshiiiii26/pathols-detection'
+    repo: 'https://github.com/sakshiiiii26/pathols-detection',
+    live: '',
+    video: ''
   },
   {
     id: 'amazon',
@@ -66,7 +78,9 @@ const projectData = [
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
     tags: ['Python', 'Scikit-learn', 'Pandas', 'Power BI'],
     details: 'Analyzed Monthly and Daily Sales trends to detect seasonal peaks and drops. Suggested strategies to drive repeat purchases and identified underperforming regions and categories.',
-    link: 'https://github.com/sakshiiiii26/Amazon_ML_Analysis'
+    repo: 'https://github.com/sakshiiiii26/Amazon_ML_Analysis',
+    live: '',
+    video: ''
   },
   {
     id: 'fraud',
@@ -75,7 +89,9 @@ const projectData = [
     image: 'https://developer-blogs.nvidia.com/wp-content/uploads/2024/10/fsi-tech-blog-fraud-detection-blueprint-1920x1080-1.jpg',
     tags: ['Python', 'NLP', 'XGBoost', 'Flask'],
     details: 'Built a robust anomaly detection pipeline combining XGBoost and NLP to flag inconsistencies in subsidy applications, significantly improving government resource allocation.',
-    link: 'https://github.com/sakshiiiii26/subsidy_fraud_detection'
+    repo: 'https://github.com/sakshiiiii26/subsidy_fraud_detection',
+    live: '',
+    video: ''
   },
 ];
 
@@ -109,7 +125,9 @@ const Projects = () => {
                   <div className="project-image-container">
                 <img src={project.image} alt={project.title} className="project-image" loading="lazy" />
                 <div className="project-overlay">
-                  <span>View Details</span>
+                  <button className="view-details-btn" onClick={e => { e.stopPropagation(); setSelectedProject(project); }}>
+                    View Details
+                  </button>
                 </div>
               </div>
               
@@ -151,7 +169,7 @@ const Projects = () => {
               <div className="modal-body">
                 <img src={selectedProject.image} alt={selectedProject.title} className="modal-image" />
                 
-                <div className="modal-details">
+                  <div className="modal-details">
                   <h4>Overview</h4>
                   <p>{selectedProject.details}</p>
                   
@@ -163,9 +181,25 @@ const Projects = () => {
                   </div>
                   
                   <div className="modal-actions">
-                    <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="btn-primary">
-                      <Code size={18} /> View Code
-                    </a>
+                    {selectedProject.repo && (
+                      <a href={selectedProject.repo} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                        <Code size={18} /> View Code
+                      </a>
+                    )}
+
+                    {selectedProject.live && (
+                      <a href={selectedProject.live} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                        Live Demo
+                      </a>
+                    )}
+
+                    {selectedProject.video ? (
+                      <a href={selectedProject.video} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                        Video Demo
+                      </a>
+                    ) : (
+                      <span className="video-coming">Video demo coming soon</span>
+                    )}
                   </div>
                 </div>
               </div>
