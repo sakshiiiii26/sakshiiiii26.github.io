@@ -18,7 +18,7 @@ const Footer = () => {
             Whether you have a question or just want to say hi, I'll try my best to get back to you!
           </p>
           
-          <a href="mailto:sakshisharma@example.com" className="btn-primary contact-btn">
+          <a href="mailto:sakshi26sharma56@example.com" className="btn-primary contact-btn">
             Say Hello
           </a>
           
@@ -26,10 +26,10 @@ const Footer = () => {
             <a href="https://github.com/sakshiiiii26" target="_blank" rel="noopener noreferrer" className="social-icon">
               <FaGithub size={24} />
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="social-icon">
+            <a href="https://www.linkedin.com/in/sakshi-sharma-01608a303/" target="_blank" rel="noopener noreferrer" className="social-icon">
               <FaLinkedin size={24} />
             </a>
-            <a href="mailto:sakshisharma@example.com" className="social-icon">
+            <a href="mailto:sakshi26sharma56@example.com" className="social-icon">
               <Mail size={24} />
             </a>
           </div>
