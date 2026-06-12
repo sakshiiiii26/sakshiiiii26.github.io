@@ -53,7 +53,7 @@ const Hero = () => {
           </div>
         </motion.div>
         
-        <motion.div 
+        {/* <motion.div 
           className="hero-image-wrapper"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -62,7 +62,7 @@ const Hero = () => {
           <div className="image-border">
             <img src="/images/Profile pic.jpg" alt="Sakshi Sharma" className="hero-image" />
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

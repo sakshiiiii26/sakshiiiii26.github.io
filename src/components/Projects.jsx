@@ -15,13 +15,22 @@ const projectData = [
     link: 'https://github.com/sakshiiiii26/AVCR'
   },
   {
+    id: 'automail',
+    title: 'Auto Mail Apply',
+    description: 'Intelligent automation platform that uses AI and NLP to analyze job opportunities and auto-apply through email.',
+    image: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2',
+    tags: ['FastAPI', 'React', 'Selenium', 'NLP', 'Python'],
+    details: 'Built an agentic workflow that scrapes job listings, uses NLP to match candidate profiles, and orchestrates email workflows to apply automatically.',
+    link: 'https://mailautomation-83tzikwxc-sakshiiiii26s-projects.vercel.app'
+  },
+  {
     id: 'rockfall',
     title: 'Rockfall Prediction System',
     description: 'ML system predicting rockfall risks in open-pit mines before they happen — sensor-driven safety for industrial environments.',
-    image: 'https://images.unsplash.com/photo-1581091870627-3e7d3c6e8f98',
+    image: 'https://www.mdpi.com/mining/mining-02-00019/article_deploy/html/images/mining-02-00019-g015.png',
     tags: ['Python', 'ML', 'Sensor Data'],
     details: 'Rockfalls in open-pit mines pose serious risks. Analyzed geological and vibration sensor data, built an ML model for risk classification, and implemented a real-time alert system to improve worker safety.',
-    link: '#'
+    link: 'https://sih-web-app-pcgw.onrender.com/login'
   },
   {
     id: 'legal',
@@ -30,16 +39,25 @@ const projectData = [
     image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f',
     tags: ['NLP', 'Flask', 'Python'],
     details: 'Built an NLP pipeline using spaCy and Hugging Face Transformers to extract key clauses. Developed an AI-powered document drafting module that generates NDAs and agreements, reducing document review time by ~70%.',
-    link: '#'
+    link: 'https://ai-legal-advocade-ha9l.vercel.app'
+  },
+  {
+    id: 'carbon',
+    title: 'CarbonVault — AI Carbon Credit Platform',
+    description: 'Full-stack real-time sustainability platform with AI-driven carbon credit automation and NDVI satellite analysis.',
+    image: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c',
+    tags: ['FastAPI', 'React', 'SpacetimeDB', 'PostgreSQL', 'ML'],
+    details: 'Developed a platform for NGOs, admins, and corporates to automate carbon credit issuance. Integrated satellite imagery analysis (NDVI) for automated verification.',
+    link: 'https://final-carbon-vault.vercel.app/'
   },
   {
     id: 'pothole',
     title: 'AI-Based Pothole Detection System',
     description: 'Real-time computer vision system detecting potholes using YOLO — deployable for smart city infrastructure monitoring.',
-    image: 'https://images.unsplash.com/photo-1597000037464-7a1f6f1a6b5b',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsv5humNRjMoIS5sMDKc_VOmRqaiJJ6mS_Hw&s',
     tags: ['YOLO', 'OpenCV', 'Python'],
     details: 'Fine-tuned YOLOv8 object detection model on a labelled pothole dataset for real-time detection. Built severity classification and GPS logging to generate actionable reports for municipal road authorities.',
-    link: '#'
+    link: 'https://github.com/sakshiiiii26/pathols-detection'
   },
   {
     id: 'amazon',
@@ -57,26 +75,8 @@ const projectData = [
     image: 'https://developer-blogs.nvidia.com/wp-content/uploads/2024/10/fsi-tech-blog-fraud-detection-blueprint-1920x1080-1.jpg',
     tags: ['Python', 'NLP', 'XGBoost', 'Flask'],
     details: 'Built a robust anomaly detection pipeline combining XGBoost and NLP to flag inconsistencies in subsidy applications, significantly improving government resource allocation.',
-    link: '#'
+    link: 'https://github.com/sakshiiiii26/subsidy_fraud_detection'
   },
-  {
-    id: 'carbon',
-    title: 'CarbonVault — AI Carbon Credit Platform',
-    description: 'Full-stack real-time sustainability platform with AI-driven carbon credit automation and NDVI satellite analysis.',
-    image: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c',
-    tags: ['FastAPI', 'React', 'SpacetimeDB', 'PostgreSQL', 'ML'],
-    details: 'Developed a platform for NGOs, admins, and corporates to automate carbon credit issuance. Integrated satellite imagery analysis (NDVI) for automated verification.',
-    link: '#'
-  },
-  {
-    id: 'automail',
-    title: 'Auto Mail Apply',
-    description: 'Intelligent automation platform that uses AI and NLP to analyze job opportunities and auto-apply through email.',
-    image: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2',
-    tags: ['FastAPI', 'React', 'Selenium', 'NLP', 'Python'],
-    details: 'Built an agentic workflow that scrapes job listings, uses NLP to match candidate profiles, and orchestrates email workflows to apply automatically.',
-    link: '#'
-  }
 ];
 
 const Projects = () => {
