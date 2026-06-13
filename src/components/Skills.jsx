@@ -5,7 +5,8 @@ import './Skills.css';
 const skillCategories = [
   {
     title: 'AI & Machine Learning',
-    skills: ['Python', 'Scikit-learn', 'TensorFlow', 'NLP', 'LSTM', 'LLM & RAG', 'LangChain', 'Hugging Face', 'Reinforcement Learning', 'Prompt Engineering']
+    skills: ['Machine Learning', 'Deep Learning (MLP, CNN, RNN)', 'NLP', 'LSTM', 'LLM', 'Transformers', 'Hugging Face', 'LangChain',
+    'RAG', 'Prompt Engineering', 'Fine-tuning', 'Reinforcement Learning', 'Scikit-learn', 'TensorFlow', 'PyTorch', 'Keras']
   },
   {
     title: 'Computer Vision',
@@ -13,15 +14,20 @@ const skillCategories = [
   },
   {
     title: 'Data & Analytics',
-    skills: ['Pandas', 'NumPy', 'SQL', 'PostgreSQL', 'MySQL', 'Power BI', 'Tableau', 'Excel', 'EDA']
+    skills: ['SQL', 'MS Excel', 'Power BI', 'Big Data', 'Data Analysis', 'EDA', 'MySQL', 'PostgreSQL', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Jupyter Notebook']
   },
   {
+    title: 'Cloud & MLOps',
+    skills: ['Vercel', 'Docker', 'Google Colab', 'MLflow', 'AWS (familiar)']
+  }
+  ,
+  {
     title: 'Backend & Frameworks',
-    skills: ['FastAPI', 'Django', 'React', 'REST APIs', 'Selenium', 'WebSockets']
+    skills: ['FastAPI', 'Django', 'React', 'WebSockets','stramlit', 'JWT Authentication']
   },
   {
     title: 'Tools & Platforms',
-    skills: ['Git/GitHub', 'Docker', 'Jetson Nano', 'MLflow', 'Google Colab', 'VS Code', 'ChromaDB', 'Vercel', 'AWS']
+    skills: ['Git/GitHub', 'Docker', 'Jetson Nano', 'VS Code', 'ChromaDB']
   },
   {
     title: 'Languages',
