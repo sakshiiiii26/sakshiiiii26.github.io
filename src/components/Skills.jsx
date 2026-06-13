@@ -5,19 +5,27 @@ import './Skills.css';
 const skillCategories = [
   {
     title: 'AI & Machine Learning',
-    skills: ['Python', 'TensorFlow', 'PyTorch', 'Scikit-Learn', 'NLP', 'Computer Vision (YOLO)', 'LSTM', 'XGBoost']
+    skills: ['Python', 'Scikit-learn', 'TensorFlow', 'NLP', 'LSTM', 'LLM & RAG', 'LangChain', 'Hugging Face', 'Reinforcement Learning', 'Prompt Engineering']
+  },
+  {
+    title: 'Computer Vision',
+    skills: ['OpenCV', 'YOLOv8', 'MediaPipe', 'Image Segmentation']
   },
   {
     title: 'Data & Analytics',
-    skills: ['Pandas', 'NumPy', 'SQL', 'PostgreSQL', 'Power BI', 'Tableau', 'Excel']
+    skills: ['Pandas', 'NumPy', 'SQL', 'PostgreSQL', 'MySQL', 'Power BI', 'Tableau', 'Excel', 'EDA']
   },
   {
     title: 'Backend & Frameworks',
-    skills: ['Flask', 'FastAPI', 'React', 'Node.js', 'REST APIs', 'Selenium']
+    skills: ['FastAPI', 'Django', 'React', 'REST APIs', 'Selenium', 'WebSockets']
   },
   {
     title: 'Tools & Platforms',
-    skills: ['Git/GitHub', 'Docker', 'Jetson Nano', 'ESP32', 'IoT Integration', 'Linux']
+    skills: ['Git/GitHub', 'Docker', 'Jetson Nano', 'MLflow', 'Google Colab', 'VS Code', 'ChromaDB', 'Vercel', 'AWS']
+  },
+  {
+    title: 'Languages',
+    skills: ['Python', 'C', 'C++', 'HTML', 'CSS']
   }
 ];
 

@@ -44,7 +44,7 @@ const Hero = () => {
             <a href="#projects" className="btn-primary">
               View Projects <ChevronRight size={20} />
             </a>
-            <a href="/AIML SAKSHI SHARMA Resume.pdf" className="btn-secondary" target="_blank" rel="noopener noreferrer">
+              <a href="/resume.pdf" className="btn-secondary" target="_blank" rel="noopener noreferrer">
               <FileText size={20} /> Resume
             </a>
             <a href="https://github.com/sakshiiiii26" className="btn-secondary" target="_blank" rel="noopener noreferrer">
