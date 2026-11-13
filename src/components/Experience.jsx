@@ -6,61 +6,59 @@ import './Experience.css';
 const experiences = [
   {
     id: 1,
-    title: 'THDCIL – Ministry of Power',
-    role: 'AI/ML Backend Engineer',
-    period: 'September 2025 – Present',
-    icon: <FileSignature size={24} />,
-    description: 'Working on backend systems and AI/ML pipelines for secure document verification. Government AI Project – Production Level.',
+    title: 'Binjwa IT Solutions',
+    role: 'AI/ML Intern',
+    period: 'July 2026 – Sept 2026',
+    icon: <Briefcase size={24} />,
+    description: 'Engineered production AI assistants, unified cost management platforms, and multi-platform automation pipelines.',
     highlights: [
-      'Developed authenticity scoring algorithms for document validation',
-      'Built ML-based forgery detection systems',
-      'Working on real-world government data pipelines',
-      'Designed scalable backend architecture for AI workflows'
+      'Engineered an intelligent, multi-turn AI assistant for a CRM using Python and LangChain, featuring a robust Role-Based Access Control (RBAC) engine to securely automate and filter employee queries',
+      'Built a unified cost comparison and token management platform for LLM, TTS & STT providers (React, FastAPI, MongoDB, Docker, Nginx, OpenRouter)',
+      'Integrated third-party automation workflows (Canva, Discord) within the Social Media Management (SMM) platform to streamline content creation and communication'
     ],
-    tags: ['Machine Learning', 'Backend Systems', 'Security']
+    tags: ['Python', 'LangChain', 'FastAPI', 'RBAC', 'MongoDB', 'Docker', 'Automation']
   },
   {
     id: 2,
-    title: 'Autonomous Vehicle for Calamity Rescue',
-    role: 'Backend & AI Lead',
-    period: '2024 – Present',
-    icon: <Briefcase size={24} />,
-    description: 'Developed an academic project focused on creating autonomous vehicles for disaster response and rescue operations.',
+    title: 'THDCIL – Ministry of Power',
+    role: 'AI/ML Backend Engineer (Intern)',
+    period: 'Sep 2025 – Aug 2026',
+    icon: <FileSignature size={24} />,
+    description: 'Engineered enterprise-grade backend systems and ML pipelines for secure document verification for a major government PSU.',
     highlights: [
-      'Handled backend development and system architecture',
-      'Designed rescue algorithms and pathfinding systems',
-      'Implemented sensor integration for obstacle detection',
-      'Developed real-time disaster mapping capabilities'
+      'Engineered an automated document verification pipeline using hash-based tamper detection, reducing manual review effort by ~80%',
+      'Implemented forgery detection models integrated into secure backend workflows for tamper-proof document processing',
+      'Built scalable REST APIs and data validation pipelines using FastAPI and Docker for production government workflows'
     ],
-    tags: ['Backend', 'AI Algorithms', 'IoT Integration']
+    tags: ['Python', 'FastAPI', 'ML Verification', 'Hash Security', 'Docker', 'Backend']
   },
   {
     id: 3,
-    title: 'E-Cell Founder',
-    role: 'IPS Academy',
-    period: '2024 – Present',
-    icon: <Users size={24} />,
-    description: 'Founded and led the Entrepreneurship Cell at IPS Academy in collaboration with IIT Bombay.',
+    title: 'Autonomous Vehicle for Calamity Rescue (AVCR)',
+    role: 'ML Systems Developer – Funded Research Project',
+    period: 'Aug 2024 – June 2026',
+    icon: <Briefcase size={24} />,
+    description: 'Government/institutionally funded research project developing autonomous disaster response vehicles for confined, GPS-denied spaces.',
     highlights: [
-      'Established official collaboration with IIT Bombay\'s E-Cell program',
-      'Served as Campus Ambassador for entrepreneurial events',
-      'Led team to become National Entrepreneurship Challenge (NEC) Finalists'
+      'Deployed real-time ML inference pipeline on NVIDIA Jetson Nano for survivability assessment in disaster-hit confined spaces',
+      'Achieved 91% classification accuracy using an ensemble of Isolation Forest, LSTM, and Random Forest models on live sensor streams',
+      'Selected among top research projects at IPS Academy IES with full institutional funding'
     ],
-    tags: ['Leadership', 'Management', 'Startup Ecosystem']
+    tags: ['Jetson Nano', 'Ensemble ML', 'LSTM', 'Isolation Forest', 'IoT Sensors']
   },
   {
     id: 4,
-    title: 'Virtual Internships',
-    role: 'Deloitte Australia (Forage)',
-    period: '2025 - April',
-    icon: <GraduationCap size={24} />,
-    description: 'Completed intensive virtual internships with leading organizations to enhance technical skills.',
+    title: 'E-Cell — IPS Academy',
+    role: 'Founder & President',
+    period: '2024 – Present',
+    icon: <Users size={24} />,
+    description: 'Founded and led the Entrepreneurship Cell in official collaboration with IIT Bombay to foster innovation and startup incubation.',
     highlights: [
-      'Built Tableau dashboards for business insights',
-      'Performed data cleaning and classification using Excel',
-      'Applied analytics for fraud detection scenarios'
+      'Established the entrepreneurship cell; organized pitching competitions, mentorship sessions, and hackathons',
+      'Led the team to become National Entrepreneurship Challenge (NEC) Finalists at IIT Bombay',
+      'Ranked among Top 100 Campus Ambassadors globally by IIT Bombay'
     ],
-    tags: ['Data Analytics', 'Data Visualization']
+    tags: ['Leadership', 'Management', 'IIT Bombay', 'Startup Ecosystem']
   }
 ];
 

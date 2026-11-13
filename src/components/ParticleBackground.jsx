@@ -10,8 +10,8 @@ const ParticleBackground = () => {
     await loadSlim(engine);
   }, []);
 
-  const particleColor = theme === 'dark' ? '#ffffff' : '#06b6d4';
-  const linkColor = theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(6, 182, 212, 0.2)';
+  const particleColor = theme === 'dark' ? '#e5b869' : '#c29332';
+  const linkColor = theme === 'dark' ? 'rgba(229, 184, 105, 0.12)' : 'rgba(194, 147, 50, 0.15)';
 
   return (
     <Particles

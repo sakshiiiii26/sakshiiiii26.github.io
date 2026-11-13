@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FileText, ChevronRight } from 'lucide-react';
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { SiLeetcode } from 'react-icons/si';
 import './Hero.css';
 
 const Hero = () => {
@@ -19,7 +20,7 @@ const Hero = () => {
         >
           <div className="badge glass">
             <span className="dot"></span>
-            Available for Freelance Projects
+            Available for Full-Time Roles & Opportunities
           </div>
           
           <h1 className="hero-title">
@@ -28,41 +29,41 @@ const Hero = () => {
           </h1>
           
           <div className="typewriter-container">
-            <h2 className="typewriter-text">AI Engineer & Data Scientist</h2>
+            <h2 className="typewriter-text">AIML, Generative AI & Full-Stack Engineer</h2>
           </div>
           
           <p className="hero-description">
-            I build production-ready AI systems that solve real-world problems — from fraud detection and disaster rescue to secure document verification. 
-            Currently working with <strong>Ministry of Power (THDCIL)</strong> on AI-driven verification systems.
+            Building production-ready AI products, autonomous agentic workflows (ReAct, LangGraph), RAG pipelines, and high-performance React + FastAPI web applications. Industry experience at <strong>Binjwa IT Solutions</strong> and <strong>THDCIL (Ministry of Power)</strong>; SIH Finalist and government-funded researcher.
           </p>
           
           <div className="hero-achievements">
-            🏆 SIH 2025 Finalist &nbsp;|&nbsp; 🥇 VyaparX Winner &nbsp;|&nbsp; 🎯 NEC Finalist
+            <span className="achievement-pill">SIH 2025 Finalist</span>
+            <span className="achievement-sep">•</span>
+            <span className="achievement-pill">VyaparX Winner</span>
+            <span className="achievement-sep">•</span>
+            <span className="achievement-pill">NEC Finalist (IIT Bombay)</span>
+            <span className="achievement-sep">•</span>
+            <span className="achievement-pill">Udaan'26 Winner</span>
           </div>
 
           <div className="hero-cta">
             <a href="#projects" className="btn-primary">
               View Projects <ChevronRight size={20} />
             </a>
-              <a href="/resume.pdf" className="btn-secondary" target="_blank" rel="noopener noreferrer">
-              <FileText size={20} /> Resume
+            <a href="/resume.pdf" className="btn-secondary" target="_blank" rel="noopener noreferrer">
+              <FileText size={18} /> Resume
             </a>
-            <a href="https://github.com/sakshiiiii26" className="btn-secondary" target="_blank" rel="noopener noreferrer">
-              <FaGithub size={20} /> GitHub
+            <a href="https://github.com/sakshiiiii26" className="btn-secondary" target="_blank" rel="noopener noreferrer" title="GitHub">
+              <FaGithub size={18} /> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/sakshi-sharma-01608a303/" className="btn-secondary" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+              <FaLinkedin size={18} /> LinkedIn
+            </a>
+            <a href="https://leetcode.com/u/sakshiiii_26/" className="btn-secondary" target="_blank" rel="noopener noreferrer" title="LeetCode">
+              <SiLeetcode size={18} /> LeetCode
             </a>
           </div>
         </motion.div>
-        
-        {/* <motion.div 
-          className="hero-image-wrapper"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <div className="image-border">
-            <img src="/images/Profile pic.jpg" alt="Sakshi Sharma" className="hero-image" />
-          </div>
-        </motion.div> */}
       </div>
     </section>
   );

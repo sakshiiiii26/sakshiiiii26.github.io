@@ -88,10 +88,24 @@
 }
 
 .hero-achievements {
-  font-size: 0.95rem;
-  color: var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  font-size: 0.92rem;
   margin-bottom: 2.5rem;
+}
+
+.achievement-pill {
+  color: var(--accent-cyan);
   font-weight: 500;
+  letter-spacing: 0.25px;
+}
+
+.achievement-sep {
+  color: var(--accent-purple);
+  opacity: 0.45;
+  font-size: 0.75rem;
 }
 
 .hero-cta {

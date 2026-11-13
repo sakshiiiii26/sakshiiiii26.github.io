@@ -1,102 +1,170 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
-import { X, Code } from 'lucide-react';
+import { X, Code, ExternalLink } from 'lucide-react';
 import './Projects.css';
+
+const categories = [
+  { id: 'all', label: 'All Projects' },
+  { id: 'agentic-ai', label: 'Agentic AI & GenAI' },
+  { id: 'research-ml', label: 'ML & Research' },
+  { id: 'frontend-web', label: 'Full-Stack & Web' }
+];
 
 const projectData = [
   {
-    id: 'avcr',
-    title: 'Autonomous Rescue AI System (AVCR)',
-    description: 'AI rescue system reducing response time by 30% — real-time gas detection and danger prediction deployed on Jetson Nano for mining and disaster environments.',
-    image: 'https://5.imimg.com/data5/SELLER/Default/2024/9/450197758/XA/WB/NF/226713088/confined-space-drone-inspection-gps-denied-drone.jpg',
-    tags: ['Jetson Nano', 'LSTM', 'ESP32', 'Flask'],
-    details: 'In disaster-hit environments, detecting hazardous gas leaks and assessing survivability is extremely difficult. Designed an autonomous IoT-based rescue vehicle equipped with multiple gas sensors. Implemented LSTM model for real-time gas level prediction and Isolation Forest for anomaly detection.',
-    repo: 'https://github.com/sakshiiiii26/AVCR',
+    id: 'reelforge',
+    title: 'ReelForge — Autonomous AI Video Platform',
+    category: 'agentic-ai',
+    description: 'Autonomous pipeline converting text prompts into short-form reels with LLM scene planning, Pexels media routing, and multi-tier TTS.',
+    image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80',
+    tags: ['Celery', 'Redis', 'FFmpeg', 'ElevenLabs', 'WebSockets', 'FastAPI', 'LLM'],
+    details: 'Architected an end-to-end autonomous video generation pipeline converting natural-language prompts into short-form video reels with LLM-driven scene planning, viral hook generation, and pacing optimization. Engineered a multi-modal asset routing and resilient audio engine, dynamically fetching relevant stock media via Pexels and implementing a multi-tier TTS fallback system (ElevenLabs, Edge-TTS, TTS) for synchronized voiceovers. Built a distributed headless rendering service using Celery, Redis, and FFmpeg for automated video composition, dynamic caption burning, and audio muxing, streaming real-time stage progress to clients over WebSockets.',
+    repo: 'https://github.com/sakshiiiii26/reelfordge',
     live: '',
     video: ''
   },
   {
     id: 'automail',
-    title: 'Auto Mail Apply',
-    description: 'Intelligent automation platform that uses AI and NLP to analyze job opportunities and auto-apply through email.',
-    image: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2',
-    tags: ['FastAPI', 'React', 'Selenium', 'NLP', 'Python'],
-    details: 'Built an agentic workflow that scrapes job listings, uses NLP to match candidate profiles, and orchestrates email workflows to apply automatically.',
-    repo: '',
-    live: 'https://mailautomation-83tzikwxc-sakshiiiii26s-projects.vercel.app',
-    video: ''
-  },
-  {
-    id: 'rockfall',
-    title: 'Rockfall Prediction System',
-    description: 'ML system predicting rockfall risks in open-pit mines before they happen — sensor-driven safety for industrial environments.',
-    image: 'https://www.mdpi.com/mining/mining-02-00019/article_deploy/html/images/mining-02-00019-g015.png',
-    tags: ['Python', 'ML', 'Sensor Data'],
-    details: 'Rockfalls in open-pit mines pose serious risks. Analyzed geological and vibration sensor data, built an ML model for risk classification, and implemented a real-time alert system to improve worker safety.',
-    repo: '',
-    live: 'https://sih-web-app-pcgw.onrender.com/login',
+    title: 'Auto Mail Apply — Agentic AI Job Pipeline',
+    category: 'agentic-ai',
+    description: 'Autonomous ReAct agent that scrapes job boards, ranks candidate-job fit using NLP, and auto-dispatches tailored outreach emails.',
+    image: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?auto=format&fit=crop&w=800&q=80',
+    tags: ['Python', 'FastAPI', 'ReAct Agent', 'Selenium', 'spaCy', 'LLM Tool Calling'],
+    details: 'Designed and built a fully autonomous multi-step agent that scrapes job listings, ranks candidate-job fit using NLP (cosine similarity + keyword extraction), and auto-composes and sends tailored outreach emails with zero manual input. Implemented tool-use architecture where the agent invokes web scraper, profile matcher, and email composer as sequential tools — a working ReAct-style agentic workflow. Reduced time-per-application from ~20 minutes to under 30 seconds; scales across multiple job boards and candidate profiles.',
+    repo: 'https://github.com/sakshiiiii26',
+    live: 'https://mailautomation-azure.vercel.app/',
     video: ''
   },
   {
     id: 'legal',
-    title: 'AI Legal Assistant',
-    description: 'Automates legal document drafting and analysis using NLP, cutting document preparation time for legal workflows.',
-    image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f',
-    tags: ['NLP', 'Flask', 'Python'],
-    details: 'Built an NLP pipeline using spaCy and Hugging Face Transformers to extract key clauses. Developed an AI-powered document drafting module that generates NDAs and agreements, reducing document review time by ~70%.',
-    repo: '',
+    title: 'AI-Powered Personal Legal Assistant (RAG)',
+    category: 'agentic-ai',
+    description: 'Production RAG pipeline combining FAISS vector search with LLMs for legal document summarization, case strategy, and classification.',
+    image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80',
+    tags: ['FastAPI', 'FAISS', 'LangChain', 'Groq / OpenAI', 'PostgreSQL', 'RAG'],
+    details: 'Built a production-grade RAG pipeline combining FAISS vector retrieval with LLM generation for legal document summarization, case strategy advisory, and document classification. Implemented multi-turn conversational memory, citation attribution, and streaming responses for real-time responsive UX.',
+    repo: 'https://github.com/sakshiiiii26',
     live: 'https://ai-legal-advocade-ha9l.vercel.app',
+    video: ''
+  },
+  {
+    id: 'binjwacost',
+    title: 'Binjwa AI Cost & Token Management Platform',
+    category: 'agentic-ai',
+    description: 'Multi-tenant cost and token management platform that tracks, compares, and optimizes real-time usage across LLMs, Voice, and STT providers.',
+    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80',
+    tags: ['React', 'FastAPI', 'MongoDB', 'Docker', 'Nginx', 'OpenRouter', 'Token Analytics'],
+    details: 'A multi-tenant cost and token management system that tracks, compares, and optimizes real-time usage across various AI model providers (LLMs, Voice, and STT). Empowers organizations to allocate token budgets to teams, monitor employee AI consumption, and route requests dynamically to the most cost-effective AI models. Stack: React (Vite) + FastAPI (Python) + MongoDB, containerized with Docker & Nginx, and integrated with OpenRouter and top LLM APIs.',
+    repo: 'https://github.com/sakshiiiii26',
+    live: 'https://tokencomparison.netlify.app/',
+    video: ''
+  },
+  {
+    id: 'avcr',
+    title: 'Autonomous Rescue AI System (AVCR)',
+    category: 'research-ml',
+    description: 'Real-time survivability & gas hazard assessment deployed on NVIDIA Jetson Nano with 91% accuracy using ensemble ML.',
+    image: 'https://5.imimg.com/data5/SELLER/Default/2024/9/450197758/XA/WB/NF/226713088/confined-space-drone-inspection-gps-denied-drone.jpg',
+    tags: ['Jetson Nano', 'Ensemble ML', 'LSTM', 'Isolation Forest', 'IoT Sensors'],
+    details: 'Deployed ML inference pipeline on NVIDIA Jetson Nano for real-time survivability assessment in disaster-hit confined spaces. Achieved 91% classification accuracy using an ensemble of Isolation Forest, LSTM, and Random Forest models on live sensor streams. Project received institutional funding; selected among top research projects at IPS Academy IES.',
+    repo: 'https://github.com/sakshiiiii26/AVCR',
+    live: '',
     video: ''
   },
   {
     id: 'carbon',
     title: 'CarbonVault — AI Carbon Credit Platform',
-    description: 'Full-stack real-time sustainability platform with AI-driven carbon credit automation and NDVI satellite analysis.',
-    image: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c',
-    tags: ['FastAPI', 'React', 'SpacetimeDB', 'PostgreSQL', 'ML'],
-    details: 'Developed a platform for NGOs, admins, and corporates to automate carbon credit issuance. Integrated satellite imagery analysis (NDVI) for automated verification.',
-    repo: '',
+    category: 'research-ml',
+    description: 'End-to-end AI platform automating carbon credit issuance across 500+ submission workflows with NDVI satellite validation.',
+    image: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=80',
+    tags: ['FastAPI', 'React', 'SpacetimeDB', 'PostgreSQL', 'NDVI Analysis', 'Vercel'],
+    details: 'Built an end-to-end AI platform automating carbon credit issuance for NGOs, admins, and corporates across 500+ submission workflows — integrating satellite imagery (NDVI analysis) for automated land cover validation. Reduced manual verification turnaround from days to under 2 minutes; features role-based audit workflows and multi-user authentication.',
+    repo: 'https://github.com/sakshiiiii26',
     live: 'https://final-carbon-vault.vercel.app/',
+    video: ''
+  },
+  {
+    id: 'rockfall',
+    title: 'Rockfall Prediction & Alert System',
+    category: 'research-ml',
+    description: 'ML classification system predicting rockfall hazards in open-pit mines with 88% precision and a 10–15 min early warning pipeline.',
+    image: 'https://www.mdpi.com/mining/mining-02-00019/article_deploy/html/images/mining-02-00019-g015.png',
+    tags: ['Python', 'Scikit-learn', 'Sensor Data', 'Real-time Alerting', 'Render'],
+    details: 'ML classification system predicting rockfall risk in open-pit mines from geological + vibration sensor data; achieved 88% precision on held-out test sets. Real-time alerting pipeline providing a 10–15 minute early warning ahead of critical risk threshold to protect personnel.',
+    repo: 'https://github.com/sakshiiiii26',
+    live: 'https://sih-web-app-pcgw.onrender.com/login',
+    video: ''
+  },
+  {
+    id: 'fraud',
+    title: 'TrueDoc — AI Document Verification',
+    category: 'research-ml',
+    description: 'Hash-based document verification and forgery detection platform cutting manual review effort by ~80% for THDCIL / Ministry of Power.',
+    image: 'https://developer-blogs.nvidia.com/wp-content/uploads/2024/10/fsi-tech-blog-fraud-detection-blueprint-1920x1080-1.jpg',
+    tags: ['Python', 'FastAPI', 'React', 'Hash Security', 'Forgery Detection', 'Docker'],
+    details: 'Engineered an automated document verification pipeline using hash-based tamper detection and ML-based forgery scoring, reducing manual review effort by ~80%. Implemented forgery detection models integrated into secure backend workflows for Ministry of Power (THDCIL) documentation.',
+    repo: 'https://github.com/sakshiiiii26/subsidy_fraud_detection',
+    live: 'https://truedoc-frontend.vercel.app/',
     video: ''
   },
   {
     id: 'pothole',
     title: 'AI-Based Pothole Detection System',
-    description: 'Real-time computer vision system detecting potholes using YOLO — deployable for smart city infrastructure monitoring.',
+    category: 'research-ml',
+    description: 'Real-time computer vision system detecting potholes using fine-tuned YOLOv8 for municipal road safety.',
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsv5humNRjMoIS5sMDKc_VOmRqaiJJ6mS_Hw&s',
-    tags: ['YOLO', 'OpenCV', 'Python'],
-    details: 'Fine-tuned YOLOv8 object detection model on a labelled pothole dataset for real-time detection. Built severity classification and GPS logging to generate actionable reports for municipal road authorities.',
+    tags: ['YOLOv8', 'OpenCV', 'Python', 'Computer Vision'],
+    details: 'Fine-tuned YOLOv8 object detection model on custom labelled road imagery for real-time severity classification and GPS logging to generate actionable road maintenance reports.',
     repo: 'https://github.com/sakshiiiii26/pathols-detection',
     live: '',
     video: ''
   },
   {
-    id: 'amazon',
-    title: 'Amazon Sales Intelligence System',
-    description: 'Data-driven sales prediction and customer segmentation system with Power BI dashboards and ML models.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
-    tags: ['Python', 'Scikit-learn', 'Pandas', 'Power BI'],
-    details: 'Analyzed Monthly and Daily Sales trends to detect seasonal peaks and drops. Suggested strategies to drive repeat purchases and identified underperforming regions and categories.',
-    repo: 'https://github.com/sakshiiiii26/Amazon_ML_Analysis',
-    live: '',
+    id: 'smartinterview',
+    title: 'SmartInterview — AI Interview Avatar Platform',
+    category: 'frontend-web',
+    description: 'Interactive React frontend for an AI interview-avatar platform with 3D avatars, real-time feedback, and responsive layouts.',
+    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80',
+    tags: ['React 18', 'React Router', 'Tailwind CSS', 'Three.js', 'Spline', 'Axios', 'Google OAuth'],
+    details: 'Designed and developed the UI pages of the platform\'s React frontend for an AI interview-avatar experience, with clean, consistent layouts across devices. Implemented interview workflows, responsive form validation with React Hook Form, and interactive 3D avatar animations using Spline and React Three Fiber.',
+    repo: 'https://github.com/sakshiiiii26',
+    live: 'https://smartinterview.in',
     video: ''
   },
   {
-    id: 'fraud',
-    title: 'AI Subsidy Fraud Detection System',
-    description: 'End-to-end ML system catching fraudulent government subsidy claims with 95% accuracy, reducing manual verification by 60%.',
-    image: 'https://developer-blogs.nvidia.com/wp-content/uploads/2024/10/fsi-tech-blog-fraud-detection-blueprint-1920x1080-1.jpg',
-    tags: ['Python', 'NLP', 'XGBoost', 'Flask'],
-    details: 'Built a robust anomaly detection pipeline combining XGBoost and NLP to flag inconsistencies in subsidy applications, significantly improving government resource allocation.',
-    repo: 'https://github.com/sakshiiiii26/subsidy_fraud_detection',
-    live: '',
+    id: 'quoqubit',
+    title: 'QuoQubit — AI Products & Software Website',
+    category: 'frontend-web',
+    description: 'Production corporate website for an AI products and custom software company, delivering smooth interactive 3D elements and modern UI.',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+    tags: ['React 19', 'Vite', 'Tailwind CSS', 'GSAP', 'Framer Motion', 'Three.js / OGL', 'shadcn/ui'],
+    details: 'Worked in a team on the company\'s live production website (AI products, custom software, data engineering and intelligent automation); designed and built the Home to Services pages and the inner project pages as modular React components with GSAP ScrollTrigger and interactive Three.js 3D visuals.',
+    repo: 'https://github.com/sakshiiiii26',
+    live: 'https://quoqubit.com',
     video: ''
   },
+  {
+    id: 'amazon',
+    title: 'Amazon Sales Intelligence System',
+    category: 'research-ml',
+    description: 'Sales trend prediction and customer segmentation engine with interactive Power BI dashboards.',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+    tags: ['Python', 'Scikit-learn', 'Pandas', 'Power BI', 'EDA'],
+    details: 'Analyzed monthly and daily sales trends to detect seasonal peaks and drops with predictive Scikit-learn models and interactive Power BI dashboards, identifying underperforming regions and retention drivers.',
+    repo: 'https://github.com/sakshiiiii26/Amazon_ML_Analysis',
+    live: '',
+    video: ''
+  }
 ];
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [activeCategory, setActiveCategory] = useState('all');
+
+  const filteredProjects = activeCategory === 'all'
+    ? projectData
+    : projectData.filter(project => project.category === activeCategory);
 
   return (
     <section id="projects" className="projects-section">
@@ -105,46 +173,88 @@ const Projects = () => {
           Featured <span className="text-gradient">Projects</span>
         </h2>
         <p className="section-subtitle">
-          A showcase of my recent work in AI, Machine Learning, and Data Science.
+          Showcasing production AI products, autonomous agentic workflows, full-stack applications, and research systems.
         </p>
 
-        <div className="projects-grid">
-          {projectData.map((project, index) => (
-            <motion.div 
-              key={project.id}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50, y: 30 }}
-              whileInView={{ opacity: 1, x: 0, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ type: "spring", stiffness: 100, damping: 14, delay: (index % 3) * 0.1 }}
+        {/* Category Filter Tabs */}
+        <div className="project-categories">
+          {categories.map(cat => (
+            <button
+              key={cat.id}
+              className={`project-cat-btn ${activeCategory === cat.id ? 'active' : ''}`}
+              onClick={() => setActiveCategory(cat.id)}
             >
-              <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} scale={1.02} transitionSpeed={2500} className="tilt-wrapper">
-                <div 
-                  className="project-card glass clickable"
-                  onClick={() => setSelectedProject(project)}
-                >
-                  <div className="project-image-container">
-                <img src={project.image} alt={project.title} className="project-image" loading="lazy" />
-                <div className="project-overlay">
-                  <button className="view-details-btn" onClick={e => { e.stopPropagation(); setSelectedProject(project); }}>
-                    View Details
-                  </button>
-                </div>
-              </div>
-              
-              <div className="project-content">
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-description">{project.description}</p>
-                <div className="project-tags">
-                  {project.tags.map(tag => (
-                    <span key={tag} className="project-tag">{tag}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </Tilt>
-        </motion.div>
-      ))}
+              {cat.label}
+            </button>
+          ))}
         </div>
+
+        <motion.div layout className="projects-grid">
+          <AnimatePresence>
+            {filteredProjects.map((project, index) => (
+              <motion.div 
+                key={project.id}
+                layout
+                className="project-grid-item"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.3, delay: (index % 4) * 0.05 }}
+              >
+                <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} scale={1.02} transitionSpeed={2500} className="tilt-wrapper" style={{ height: '100%' }}>
+                  <div 
+                    className="project-card glass clickable"
+                    onClick={() => setSelectedProject(project)}
+                  >
+                    <div className="project-image-container">
+                      <img src={project.image} alt={project.title} className="project-image" loading="lazy" />
+                      <div className="project-overlay">
+                        <button className="view-details-btn" onClick={e => { e.stopPropagation(); setSelectedProject(project); }}>
+                          View Details
+                        </button>
+                      </div>
+                    </div>
+                    
+                    <div className="project-content">
+                      <h3 className="project-title">{project.title}</h3>
+                      <p className="project-description">{project.description}</p>
+                      <div className="project-tags">
+                        {project.tags.map(tag => (
+                          <span key={tag} className="project-tag">{tag}</span>
+                        ))}
+                      </div>
+
+                      <div className="project-card-footer">
+                        {project.live ? (
+                          <a 
+                            href={project.live} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="project-link-btn live-btn"
+                            onClick={e => e.stopPropagation()}
+                          >
+                            <ExternalLink size={14} /> Live Demo
+                          </a>
+                        ) : project.repo ? (
+                          <a 
+                            href={project.repo} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="project-link-btn code-btn"
+                            onClick={e => e.stopPropagation()}
+                          >
+                            <Code size={14} /> View Code
+                          </a>
+                        ) : null}
+                        <span className="card-details-hint">Details &rarr;</span>
+                      </div>
+                    </div>
+                  </div>
+                </Tilt>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
 
       <AnimatePresence>
@@ -169,7 +279,7 @@ const Projects = () => {
               <div className="modal-body">
                 <img src={selectedProject.image} alt={selectedProject.title} className="modal-image" />
                 
-                  <div className="modal-details">
+                <div className="modal-details">
                   <h4>Overview</h4>
                   <p>{selectedProject.details}</p>
                   
@@ -181,25 +291,15 @@ const Projects = () => {
                   </div>
                   
                   <div className="modal-actions">
-                    {selectedProject.repo && (
+                    {selectedProject.live ? (
+                      <a href={selectedProject.live} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                        <ExternalLink size={18} /> Live Demo
+                      </a>
+                    ) : selectedProject.repo ? (
                       <a href={selectedProject.repo} target="_blank" rel="noopener noreferrer" className="btn-primary">
                         <Code size={18} /> View Code
                       </a>
-                    )}
-
-                    {selectedProject.live && (
-                      <a href={selectedProject.live} target="_blank" rel="noopener noreferrer" className="btn-primary">
-                        Live Demo
-                      </a>
-                    )}
-
-                    {selectedProject.video ? (
-                      <a href={selectedProject.video} target="_blank" rel="noopener noreferrer" className="btn-primary">
-                        Video Demo
-                      </a>
-                    ) : (
-                      <span className="video-coming">Video demo coming soon</span>
-                    )}
+                    ) : null}
                   </div>
                 </div>
               </div>

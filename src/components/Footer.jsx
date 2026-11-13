@@ -1,6 +1,7 @@
 import React from 'react';
 import { Mail, ArrowUp } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { SiLeetcode } from 'react-icons/si';
 import './Footer.css';
 
 const Footer = () => {
@@ -14,22 +15,25 @@ const Footer = () => {
         <div className="footer-content">
           <h2 className="footer-title text-gradient">Let's Connect</h2>
           <p className="footer-text">
-            I'm currently available for freelance projects and new opportunities.
-            Whether you have a question or just want to say hi, I'll try my best to get back to you!
+            I'm currently available for AI/ML engineering, Generative AI agent development, and Full-Stack opportunities.
+            Whether you have a project in mind, an opportunity, or just want to connect, feel free to reach out!
           </p>
           
-          <a href="mailto:sakshi26sharma56@example.com" className="btn-primary contact-btn">
+          <a href="mailto:sakshi26sharma56@gmail.com" className="btn-primary contact-btn">
             Say Hello
           </a>
           
           <div className="social-links">
-            <a href="https://github.com/sakshiiiii26" target="_blank" rel="noopener noreferrer" className="social-icon">
+            <a href="https://github.com/sakshiiiii26" target="_blank" rel="noopener noreferrer" className="social-icon" title="GitHub">
               <FaGithub size={24} />
             </a>
-            <a href="https://www.linkedin.com/in/sakshi-sharma-01608a303/" target="_blank" rel="noopener noreferrer" className="social-icon">
+            <a href="https://www.linkedin.com/in/sakshi-sharma-01608a303/" target="_blank" rel="noopener noreferrer" className="social-icon" title="LinkedIn">
               <FaLinkedin size={24} />
             </a>
-            <a href="mailto:sakshi26sharma56@example.com" className="social-icon">
+            <a href="https://leetcode.com/u/sakshiiii_26/" target="_blank" rel="noopener noreferrer" className="social-icon" title="LeetCode">
+              <SiLeetcode size={22} />
+            </a>
+            <a href="mailto:sakshi26sharma56@gmail.com" className="social-icon" title="Email">
               <Mail size={24} />
             </a>
           </div>
